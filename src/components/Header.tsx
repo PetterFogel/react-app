@@ -1,6 +1,9 @@
 import React, { CSSProperties } from 'react';
+import SideMenu from './sideMenu';
+
 
 function Header() {
+
     return(
         <header style={rootStyle}>
             <h2 style={headerTitle}>React App</h2>
@@ -9,6 +12,7 @@ function Header() {
                 <div style={barStyle}></div>
                 <div style={barStyle}></div>
             </div>
+            <SideMenu />
         </header>
     );
 }

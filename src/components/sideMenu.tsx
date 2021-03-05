@@ -13,7 +13,7 @@ function SideMenu() {
 
 const rootStyle: CSSProperties = {
     position: "fixed",
-    right: "-48%",
+    right: 0,
     top: "10vh",
     width: "50%",
     height: "90vh",
