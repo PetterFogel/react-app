@@ -12,17 +12,17 @@ function SideMenu() {
 }
 
 const rootStyle: CSSProperties = {
-    position: "fixed",
-    right: 0,
-    top: "10vh",
-    width: "50%",
-    height: "90vh",
-    color: "#fff",
-    background: "#111",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    // position: "fixed",
+    // right: 0,
+    // top: "10vh",
+    // width: "50%",
+    // height: "90vh",
+    // color: "#fff",
+    // background: "#111",
+    // display: "flex",
+    // flexDirection: "column",
+    // justifyContent: "center",
+    // alignItems: "center",
 }
 
 export default SideMenu;

@@ -1,20 +1,58 @@
-import React, { CSSProperties } from 'react';
+import React, { Component, CSSProperties } from 'react';
 import SideMenu from './sideMenu';
 
+interface Props {}
+interface State {
+    isMenuOpen: boolean
+}
 
-function Header() {
 
-    return(
-        <header style={rootStyle}>
-            <h2 style={headerTitle}>React App</h2>
-            <div style={burgerMenu}>
-                <div style={barStyle}></div>
-                <div style={barStyle}></div>
-                <div style={barStyle}></div>
-            </div>
-            <SideMenu />
-        </header>
-    );
+class Header extends Component<Props, State> {
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            isMenuOpen: false
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        this.setState((state) => ({
+            isMenuOpen: !state.isMenuOpen
+        }));
+        console.log(this.state.isMenuOpen)
+    }
+
+    render() {
+        return(
+            <header style={rootStyle}>
+                <h2 style={headerTitle}>React App</h2>
+                <div style={burgerMenu} onClick={this.handleClick}>
+                    <div style={barStyle}></div>
+                    <div style={barStyle}></div>
+                    <div style={barStyle}></div>
+                </div>
+                <div style={testStyle}>
+                    <SideMenu />
+                </div>
+            </header>
+        );
+    }
+}
+
+const testStyle: CSSProperties = {
+    position: "fixed",
+    right: 0,
+    top: "10vh",
+    width: "50%",
+    height: "90vh",
+    color: "#fff",
+    background: "#111",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
 }
 
 const rootStyle: CSSProperties = {
