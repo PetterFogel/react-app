@@ -12,7 +12,7 @@ class Header extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            isMenuOpen: false
+            isMenuOpen: true
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -21,7 +21,6 @@ class Header extends Component<Props, State> {
         this.setState((state) => ({
             isMenuOpen: !state.isMenuOpen
         }));
-        console.log(this.state.isMenuOpen)
     }
 
     render() {
@@ -33,7 +32,11 @@ class Header extends Component<Props, State> {
                     <div style={barStyle}></div>
                     <div style={barStyle}></div>
                 </div>
-                <div style={testStyle}>
+                <div
+                    style={{...sideMenuStyle,
+                        right: this.state.isMenuOpen ? "0%" : "-50%"
+                    }}
+                    >
                     <SideMenu />
                 </div>
             </header>
@@ -41,9 +44,8 @@ class Header extends Component<Props, State> {
     }
 }
 
-const testStyle: CSSProperties = {
+const sideMenuStyle: CSSProperties = {
     position: "fixed",
-    right: 0,
     top: "10vh",
     width: "50%",
     height: "90vh",
@@ -53,6 +55,7 @@ const testStyle: CSSProperties = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    transition: "all 500ms ease-in"
 }
 
 const rootStyle: CSSProperties = {
