@@ -23,10 +23,32 @@ exports.default = App;
 
 /***/ }),
 
-/***/ "./src/components/Header.tsx":
+/***/ "./src/components/Layout.tsx":
 /*!***********************************!*\
-  !*** ./src/components/Header.tsx ***!
+  !*** ./src/components/Layout.tsx ***!
   \***********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "react"));
+var Header_1 = __importDefault(__webpack_require__(/*! ./Navbar/Header */ "./src/components/Navbar/Header.tsx"));
+function Layout() {
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement(Header_1.default, null)));
+}
+exports.default = Layout;
+
+
+/***/ }),
+
+/***/ "./src/components/Navbar/Header.tsx":
+/*!******************************************!*\
+  !*** ./src/components/Navbar/Header.tsx ***!
+  \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -80,13 +102,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
-var sideMenu_1 = __importDefault(__webpack_require__(/*! ./sideMenu */ "./src/components/sideMenu.tsx"));
+var burgerMenu_1 = __importDefault(__webpack_require__(/*! ./burgerMenu */ "./src/components/Navbar/burgerMenu.tsx"));
+var sideMenu_1 = __importDefault(__webpack_require__(/*! ./sideMenu */ "./src/components/Navbar/sideMenu.tsx"));
 var Header = /** @class */ (function (_super) {
     __extends(Header, _super);
     function Header(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            isMenuOpen: true
+            isMenuOpen: false
         };
         _this.handleClick = _this.handleClick.bind(_this);
         return _this;
@@ -99,28 +122,13 @@ var Header = /** @class */ (function (_super) {
     Header.prototype.render = function () {
         return (react_1.default.createElement("header", { style: rootStyle },
             react_1.default.createElement("h2", { style: headerTitle }, "React App"),
-            react_1.default.createElement("div", { style: burgerMenu, onClick: this.handleClick },
-                react_1.default.createElement("div", { style: barStyle }),
-                react_1.default.createElement("div", { style: barStyle }),
-                react_1.default.createElement("div", { style: barStyle })),
+            react_1.default.createElement("nav", { onClick: this.handleClick, style: { cursor: "pointer" } },
+                react_1.default.createElement(burgerMenu_1.default, { value: this.state.isMenuOpen })),
             react_1.default.createElement("div", { style: __assign(__assign({}, sideMenuStyle), { right: this.state.isMenuOpen ? "0%" : "-50%" }) },
                 react_1.default.createElement(sideMenu_1.default, null))));
     };
     return Header;
 }(react_1.Component));
-var sideMenuStyle = {
-    position: "fixed",
-    top: "10vh",
-    width: "50%",
-    height: "90vh",
-    color: "#fff",
-    background: "#111",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    transition: "all 500ms ease-in"
-};
 var rootStyle = {
     position: "fixed",
     left: 0,
@@ -134,51 +142,74 @@ var rootStyle = {
     padding: "0rem 2rem"
 };
 var headerTitle = {
-    color: "#fff",
+    color: "#f1f1f1",
     letterSpacing: "2px"
 };
-var burgerMenu = {
-    cursor: "pointer"
-};
-var barStyle = {
-    width: "1.5rem",
-    height: "3px",
-    background: "#f1f1f1",
-    margin: "0.3rem",
-    transition: "all 0.3s ease",
-    backgroundColor: "#fff"
+var sideMenuStyle = {
+    position: "fixed",
+    top: "10vh",
+    width: "50%",
+    height: "90vh",
+    color: "#fff",
+    background: "#111",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    transition: "all 500ms ease-in"
 };
 exports.default = Header;
 
 
 /***/ }),
 
-/***/ "./src/components/Layout.tsx":
-/*!***********************************!*\
-  !*** ./src/components/Layout.tsx ***!
-  \***********************************/
+/***/ "./src/components/Navbar/burgerMenu.tsx":
+/*!**********************************************!*\
+  !*** ./src/components/Navbar/burgerMenu.tsx ***!
+  \**********************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "react"));
-var Header_1 = __importDefault(__webpack_require__(/*! ./Header */ "./src/components/Header.tsx"));
-function Layout() {
+function BurgerMenu(props) {
+    console.log(props.value);
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement(Header_1.default, null)));
+        react_1.default.createElement("div", { style: __assign(__assign({}, barStyle), { transform: props.value ? "rotate(-45deg) translate(-0.3rem, 0.4rem)" : "rotate(0deg) translate(0rem)" }) }),
+        react_1.default.createElement("div", { style: __assign(__assign({}, barStyle), { opacity: props.value ? "0" : "1" }) }),
+        react_1.default.createElement("div", { style: __assign(__assign({}, barStyle), { transform: props.value ? "rotate(45deg) translate(-0.3rem, -0.4rem)" : "rotate(0deg) translate(0rem)" }) })));
 }
-exports.default = Layout;
+var barStyle = {
+    width: "2rem",
+    height: "0.2rem",
+    borderRadius: "0.1rem",
+    background: "#f1f1f1",
+    margin: "0.3rem",
+    transition: "all 0.3s ease"
+};
+exports.default = BurgerMenu;
 
 
 /***/ }),
 
-/***/ "./src/components/sideMenu.tsx":
-/*!*************************************!*\
-  !*** ./src/components/sideMenu.tsx ***!
-  \*************************************/
+/***/ "./src/components/Navbar/sideMenu.tsx":
+/*!********************************************!*\
+  !*** ./src/components/Navbar/sideMenu.tsx ***!
+  \********************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -195,17 +226,8 @@ function SideMenu() {
         react_1.default.createElement("h3", null, "Contact")));
 }
 var rootStyle = {
-// position: "fixed",
-// right: 0,
-// top: "10vh",
-// width: "50%",
-// height: "90vh",
-// color: "#fff",
-// background: "#111",
-// display: "flex",
-// flexDirection: "column",
-// justifyContent: "center",
-// alignItems: "center",
+    color: "#f1f1f1",
+    letterSpacing: "0.125rem"
 };
 exports.default = SideMenu;
 
