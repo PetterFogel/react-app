@@ -1,22 +1,35 @@
-import React, { CSSProperties } from 'react'
+import React, { useState } from 'react';
+import "../../styles/Header.css"
 
 function Navigation() {
+    const [showMenu, setShowMenu] = useState(false);
+
+    const handleClick = () => {
+        setShowMenu(!showMenu);
+        console.log(showMenu)
+    }
+
     return (
-        <nav style={{ width: "30%" }}>
-            <ul style={navStyle}>
+        <nav>
+            <ul 
+                className="nav-links"
+                style={{
+                   right: showMenu ? "0%" : "-50%"
+                }}
+            >
                 <li>Home</li>
                 <li>About</li>
                 <li>Contact</li>
             </ul>
+            <div 
+                className="burger-container"
+                onClick={handleClick}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
     )
-}
-
-const navStyle: CSSProperties = {
-    display: "flex",
-    justifyContent: "space-between",
-    width: "100%",
-    listStyle: "none"
 }
 
 export default Navigation
