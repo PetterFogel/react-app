@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import "../../styles/Header.css"
+import React, { CSSProperties, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { noDecoration } from '../../css/GeneralStyles';
+import "../../css/Header.css"
 
 function Navigation() {
     const [showMenu, setShowMenu] = useState(false);
@@ -17,9 +19,15 @@ function Navigation() {
                    right: showMenu ? "0%" : "-50%"
                 }}
             >
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
+                <Link to="/" style={noDecoration}>
+                    <li style={navLinks}>Home</li>
+                </Link>
+                <Link to="/about" style={noDecoration}>
+                    <li style={navLinks}> About</li>
+                </Link>
+                <Link to="/contact" style={noDecoration}>
+                    <li style={navLinks}>Contact</li>
+                </Link>
             </ul>
             <div 
                 className="burger-container"
@@ -30,6 +38,10 @@ function Navigation() {
             </div>
         </nav>
     )
+}
+
+const navLinks: CSSProperties = {
+    color: "#fff"
 }
 
 export default Navigation
