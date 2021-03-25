@@ -1,10 +1,13 @@
 import React, { CSSProperties } from 'react'
+import { Link } from 'react-router-dom'
 import Navigation from './Navigation'
 
 function Header() {
     return (
         <header style={rootStyle}>
-            <h2 style={{ fontWeight: "normal" }}>React App</h2>
+            <Link to="/" style={noDecoration}>
+                <h2 style={headerTitle}>React App</h2>
+            </Link>
             <Navigation/>
         </header>
     )
@@ -23,6 +26,15 @@ const rootStyle: CSSProperties = {
     right: 0,
     color: "#fff",
     background: "#222"
+}
+
+const noDecoration: CSSProperties = {
+    textDecoration: "none"
+}
+
+const headerTitle: CSSProperties = {
+    fontWeight: "normal",
+    color: "#fff"
 }
 
 export default Header
