@@ -1,9 +1,21 @@
 import React, { CSSProperties } from 'react';
+import { Route } from 'react-router-dom';
+import About from './About';
+import Contact from './Contact';
+import Homepage from './Homepage';
 
 function MainContent() {
     return(
         <main style={rootStyle}>
-            <h1>MainContent</h1>
+            <Route exact path="/">
+                <Homepage/>
+            </Route>
+            <Route path="/about">
+                <About/>
+            </Route>
+            <Route path="/contact">
+                <Contact/>
+            </Route>
         </main>
     );
 }
