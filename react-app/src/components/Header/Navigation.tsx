@@ -1,47 +1,55 @@
-import React, { CSSProperties, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { noDecoration } from '../../css/GeneralStyles';
-import "../../css/Header.css"
+import { useStyles } from '../../css/HeaderStyle';
 
 function Navigation() {
+    const classes = useStyles();
     const [showMenu, setShowMenu] = useState(false);
 
     const handleClick = () => {
         setShowMenu(!showMenu);
-        console.log(showMenu)
+    }
+
+    const handleMenu = () => {
+        setShowMenu(false)
     }
 
     return (
-        <nav>
+        <nav className={classes.navStyle}>
             <ul 
-                className="nav-links"
+                className={classes.navLinksStyle}
                 style={{
-                   right: showMenu ? "0%" : "-50%"
+                    right: showMenu ? "0%" : "-100%"
                 }}
             >
-                <Link to="/" style={noDecoration}>
-                    <li style={navLinks}>Home</li>
+                <Link 
+                    to="/" style={noDecoration}
+                    onClick={handleMenu}
+                >
+                    <li className={classes.liStyle}>Home</li>
                 </Link>
-                <Link to="/about" style={noDecoration}>
-                    <li style={navLinks}> About</li>
+                <Link 
+                    to="/about" style={noDecoration}
+                    onClick={handleMenu}
+                >
+                    <li className={classes.liStyle}> About</li>
                 </Link>
-                <Link to="/contact" style={noDecoration}>
-                    <li style={navLinks}>Contact</li>
+                <Link 
+                    to="/contact" style={noDecoration}
+                    onClick={handleMenu}
+                    >
+                    <li className={classes.liStyle}>Contact</li>
                 </Link>
             </ul>
             <div 
-                className="burger-container"
+                className={classes.burgerContainer}
                 onClick={handleClick}>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div className={classes.burgerBars}></div>
+                <div className={classes.burgerBars}></div>
             </div>
         </nav>
     )
 }
 
-const navLinks: CSSProperties = {
-    color: "#fff"
-}
-
-export default Navigation
+export default Navigation;
