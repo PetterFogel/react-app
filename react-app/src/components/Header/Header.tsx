@@ -9,6 +9,7 @@ function Header() {
                 <h2 style={headerTitle}>React App</h2>
             </Link>
             <Navigation/>
+            <h4 style={cartStyle}>Shopping Cart</h4>
         </header>
     )
 }
@@ -18,14 +19,14 @@ const rootStyle: CSSProperties = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0rem 2rem",
-    height: "10vh",
+    height: "7vh",
     width: "100%",
     position: "fixed",
     top: 0,
     left: 0,
     right: 0,
-    color: "#fff",
-    background: "#222"
+    borderBottom: "1px solid #222"
+    // background: "#222"
 }
 
 const noDecoration: CSSProperties = {
@@ -34,7 +35,14 @@ const noDecoration: CSSProperties = {
 
 const headerTitle: CSSProperties = {
     fontWeight: "normal",
-    color: "#fff"
+    color: "#222"
+}
+
+const cartStyle: CSSProperties = {
+    fontWeight: "normal",
+    background: "#333",
+    color: "#fff",
+    padding: "0.4rem 1rem"
 }
 
 export default Header
