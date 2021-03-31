@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 function Homepage() {
     return (
-        <h1>Homepage</h1>
+        <h1 style={title}>Homepage</h1>
     )
+}
+
+const title: CSSProperties = {
+    fontWeight: "normal"
 }
 
 export default Homepage

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 function Contact() {
     return (
-        <h1>Contact</h1>
+        <h1 style={title}>Contact</h1>
     )
+}
+
+const title: CSSProperties = {
+    fontWeight: "normal"
 }
 
 export default Contact;
