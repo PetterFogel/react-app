@@ -3,6 +3,29 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core";
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         /* === HEADER === */
+        rootStyle: {
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "0rem 2rem",
+            height: "7vh",
+            width: "100%",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            borderBottom: "1px solid #222"
+        },
+        headerLogo: {
+            fontWeight: "normal",
+            color: "#222"
+        },
+        cartStyle: {
+            fontWeight: "normal",
+            background: "#333",
+            color: "#fff",
+            padding: "0.4rem 1rem"
+        },
         /* === NAVIGATION === */
         navStyle: {
             display: "flex",
@@ -10,7 +33,7 @@ export const useStyles = makeStyles((theme: Theme) =>
             justifyContent: "flex-end",
             width: "30%",
             height: "100%",
-            zIndex: 100
+            zIndex: 100,
         },
         navLinksStyle: {
             display: "flex",
