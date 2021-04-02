@@ -1,12 +1,13 @@
-import React, { CSSProperties } from 'react';
 import { Route } from 'react-router-dom';
+import { useStyles } from '../../css/MainStyle';
 import About from './About';
 import Contact from './Contact';
 import Homepage from './Homepage';
 
 function MainContent() {
+    const classes = useStyles();
     return(
-        <main style={rootStyle}>
+        <main className={classes.rootStyle}>
             <Route exact path="/">
                 <Homepage/>
             </Route>
@@ -18,15 +19,6 @@ function MainContent() {
             </Route>
         </main>
     );
-}
-
-const rootStyle: CSSProperties = {
-    marginTop: "10vh",
-    width: "100%",
-    height: "90vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
 }
 
 export default MainContent;
