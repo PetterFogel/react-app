@@ -8,7 +8,7 @@ function Header() {
     return (
         <header className={classes.rootStyle}>
             <Link to="/" style={noDecoration}>
-                <h2 className={classes.headerLogo}>React App</h2>
+                <h2 className={classes.headerLogo}>Gallery</h2>
             </Link>
             <Navigation/>
             <h4 className={classes.cartStyle}>Shopping Cart</h4>
