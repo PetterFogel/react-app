@@ -1,28 +1,21 @@
-import React, { CSSProperties } from 'react'
-import { subTitle, title } from '../../css/GeneralStyles'
+import { flexCenter, subTitle, title } from '../../css/GeneralStyles';
+import { useStyles } from '../../css/HomepageStyle';
 
 function Homepage() {
+    const classes = useStyles();
     return (
-        <main style={rootStyle}>
-            <div>
-                <h2 style={title}>Homepage</h2>
-                <p style={subTitle}>test</p>
+        <main className={classes.rootStyle}>
+            <div 
+                className={classes.introDiv}
+                >
+                <h2 style={title}>Paintings</h2>
+                <p style={subTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore.</p>
             </div>
-            <div>
-                <p style={subTitle}>image</p>
+            <div className={classes.imageholder}>
+                <div className={classes.imgStyle}></div>
             </div>
         </main>
     )
 }
 
-const rootStyle: CSSProperties = {
-    width: "100%",
-    height: "60vh",
-    background: "#c1e1ec",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center"
-}
-
-export default Homepage
+export default Homepage;
