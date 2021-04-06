@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { noDecoration } from '../../css/GeneralStyles';
-import { useStyles } from '../../css/HeaderStyle';
+import { noDecoration } from '../../styles/GeneralStyles';
+import { useStyles } from '../../styles/HeaderStyle';
 
 function Navigation() {
     const classes = useStyles();

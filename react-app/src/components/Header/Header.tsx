@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { noDecoration } from '../../css/GeneralStyles';
-import { useStyles } from '../../css/HeaderStyle';
+import { noDecoration } from '../../styles/GeneralStyles';
+import { useStyles } from '../../styles/HeaderStyle';
 import Navigation from './Navigation'
 
 function Header() {
@@ -11,7 +11,7 @@ function Header() {
                 <h2 className={classes.headerLogo}>Gallery</h2>
             </Link>
             <Navigation/>
-            <h4 className={classes.cartStyle}>Shopping Cart</h4>
+            {/* <h4 className={classes.cartStyle}>Shopping Cart</h4> */}
         </header>
     )
 }

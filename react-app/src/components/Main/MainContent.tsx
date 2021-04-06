@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import { useStyles } from '../../css/MainStyle';
+import { useStyles } from '../../styles/MainStyle';
 import About from './About';
 import Contact from './Contact';
 import Homepage from './Homepage';
