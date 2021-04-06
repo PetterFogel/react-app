@@ -1,5 +1,5 @@
-import { flexCenter, subTitle, title } from '../../css/GeneralStyles';
-import { useStyles } from '../../css/HomepageStyle';
+import { subTitle, title } from '../../styles/GeneralStyles';
+import { useStyles } from '../../styles/HomepageStyle';
 
 function Homepage() {
     const classes = useStyles();
@@ -8,8 +8,9 @@ function Homepage() {
             <div 
                 className={classes.introDiv}
                 >
-                <h2 style={title}>Paintings</h2>
-                <p style={subTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, labore.</p>
+                <h2 className={classes.homeTitle}>Art for your need</h2>
+                <p className={classes.homeSubTitle}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex officiis sit libero doloribus explicabo unde quasi nulla sapiente possimus fuga.</p>
+                <button className={classes.homeBtn}>Find out more</button>
             </div>
             <div className={classes.imageholder}>
                 <div className={classes.imgStyle}></div>
