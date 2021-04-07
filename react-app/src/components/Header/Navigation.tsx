@@ -30,6 +30,12 @@ function Navigation() {
                     <li className={classes.liStyle}>Home</li>
                 </Link>
                 <Link 
+                    to="/products" style={noDecoration}
+                    onClick={handleMenu}
+                >
+                    <li className={classes.liStyle}>Products</li>
+                </Link>
+                <Link 
                     to="/about" style={noDecoration}
                     onClick={handleMenu}
                 >
